@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="sharing and speechless"/>
+  <meta name="keywords" content="speechless,sharing,css,html,html5,js,node,nodejs" />
+  <title>speechless - 首页</title>
+
+  <link rel="stylesheet" href="public/lib/normalize.css" />
+  <link rel="stylesheet" href="public/lib/ditto.css" />
+  <link rel="stylesheet" href="public/lib/github.css" />
+</head>
+<body>
+  <div id="sidebar"></div>
+  <div id="content"></div>
+
+  <div id="back_to_top">back to top</div>
+  <div id="edit">edit</div>
+  <div id="loading">Loading ...</div>
+  <div id="error">Opps! ... File not found!</div>
+  <!--<div id="flip"><div id="pageup">上一章</div><div id="pagedown">下一章</div></div>-->
+  <div class="progress-indicator-2"></div>
+
+  <script src="public/lib/jquery-1.11.0.min.js"></script>
+  <script src="public/lib/jquery-ui.min.js"></script>
+  <script src="public/lib/marked.js"></script>
+  <script src="public/lib/ditto.js"></script>
+  <script src="public/lib/highlight.js"></script>
+  <script>
+    $(function() {
+      ditto.document_title = "speechless";
+      ditto.index = "index.md";
+      ditto.sidebar_file = "sidebar.md";
+      ditto.base_url = "https://github.com/ipluser/speechless/edit/gh-pages";
+
+      ditto.run();
+    });
+  </script>
+</body>
+</html>

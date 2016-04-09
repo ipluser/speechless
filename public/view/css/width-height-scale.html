@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="sharing and speechless"/>
+  <meta name="keywords" content="speechless,sharing,css,html,html5,js,node,nodejs" />
+  <title>speechless - 不规整元素的宽高等比例</title>
+
+  <link rel="stylesheet" href="../../lib/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+
+  <style>
+    .section {
+      margin-bottom: 100px;
+    }
+    .section__image-wrap {
+      display: inline-block;
+      float: left;
+      padding: 10px;
+    }
+    .section__image {
+      width: 100%;
+    }
+
+    .sample-2 .section__image-wrap {
+      position: relative;
+      padding: 12.5% 0 0 25%;
+    }
+    .sample-2 .section__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="section sample-1">
+    <h1 class="section__title">初版</h1>
+    <div class="section__images row">
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-1.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-2.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-3.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-4.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-5.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-6.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-7.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-8.jpg">
+      </div>
+    </div>
+  </div>
+  <div class="section sample-2">
+    <h1 class="section__title">改版</h1>
+    <div class="section__images row">
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-1.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-2.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-3.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-4.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-5.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-6.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-7.jpg">
+      </div>
+      <div class="section__image-wrap col-xs-3">
+        <img class="section__image" src="../../img/common/common-8.jpg">
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
