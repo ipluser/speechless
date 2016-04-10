@@ -85,27 +85,23 @@ body {
 }
 
 #content h2 {
-    margin-top: 50px;
-    margin-bottom: 0px;
+    margin-top: 40px;
+    margin-bottom: 30px;
 
-    padding-top: 20px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-bottom: 8px;
 
     font-size: 18px;
     text-align: left;
 
-    border-top: 2px solid #666;
+    border-bottom: 2px solid #eee;
 }
 
 #content h3 {
-    margin-top: 50px;
-    margin-bottom: 0px;
-
-    padding-top: 20px;
-    padding-bottom: 0px;
+    margin-top: 24px;
+    margin-bottom: 16px;
 
     text-align: left;
-    border-top: 1px dotted #777;
 }
 
 #content hr {
@@ -277,4 +273,55 @@ input[type=search] {
 
 #hide {
     display: none;
+}
+
+#content blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+  margin: 0 0 16px;
+}
+
+#content blockquote>:first-child {
+  margin-top: 0;
+}
+
+#content>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+#content table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+  margin: 0 0 16px;
+}
+
+#content table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+#content table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+#content table th, #content table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+#content table th {
+  font-weight: bold;
 }
