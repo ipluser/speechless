@@ -47,7 +47,9 @@ $(function($) {
 
     // intialize highligh.js
     if (ditto.highlight_code) {
-      hljs.initHighlightingOnLoad();
+      $('#content code').map(function() {
+        Prism.highlightElement(this);
+      });
     }
 
     // page router
@@ -402,8 +404,8 @@ $(function($) {
     create_page_anchors();
 
     if (ditto.highlight_code) {
-      $('pre code').each(function(i, block) {
-        hljs.highlightBlock(block);
+      $('pre code').map(function() {
+        Prism.highlightElement(this);
       });
     }
 
