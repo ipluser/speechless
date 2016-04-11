@@ -136,8 +136,6 @@ OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个�
 ## 效果对比图
 ![初版效果图](../../public/img/width-height-scale/samples-vs.gif)
 
-### [在线测试](http://ipluser.github.io/speechless/public/view/css/width-height-scale.html)
-
 ## 关键知识点
 > | padding value | description                                       |
 > |:------------- | :------------------------------------------------ |
@@ -146,3 +144,7 @@ OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个�
 > | %             | <mark>规定基于父元素的宽度的百分比的内边距。</mark>      |
 > | inherit       | 规定应该从父元素继承内边距。                           |
 >>w3school
+
+## 资源
+### [在线测试](http://ipluser.github.io/speechless/public/view/css/width-height-scale.html)
+### [源代码](../../public/view/css/width-height-scale.html)
