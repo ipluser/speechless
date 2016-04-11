@@ -6,7 +6,7 @@
 
 ## 目录
 - CSS
- - [不规整元素的高宽等比例](#docs/css/width-height-scale)
+ - [不规整元素的宽高等比例](#docs/css/width-height-scale)
 
 ## 其他
 - [源码](https://github.com/ipluser/speechless)
