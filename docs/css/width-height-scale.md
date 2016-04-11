@@ -147,4 +147,4 @@ OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个�
 
 ## 资源
 ### [在线测试](http://ipluser.github.io/speechless/public/view/css/width-height-scale.html)
-### [源代码](../../public/view/css/width-height-scale.html)
+### [源代码](https://github.com/ipluser/speechless/blob/gh-pages/public/view/css/width-height-scale.html)
