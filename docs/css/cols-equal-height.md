@@ -247,7 +247,7 @@
 
 ## 改版3
 ### 思路
-使用神器`flexbox`，它能简单的搞定一切～
+`table`中一行的每个格子都是等高的，那么我们可以使用css的`display: inline-table`来解决这个问题。
 
 ### HTML
 ```html
@@ -308,6 +308,80 @@
     background-color: #EEE;
   }
   .sample-4 .section__items {
+    display: table-row;
+  }
+  .sample-4 .section__item {
+    display: inline-table;
+    float: none;
+  }
+```
+
+### 效果图
+![改版3效果图](../../public/img/cols-equal-height/sample-4.gif)
+
+## 改版4
+### 思路
+使用神器`flexbox`，它能简单的搞定一切～
+
+### HTML
+```html
+  <div class="section sample-5">
+    <h1 class="section__title">改版4</h1>
+    <div class="section__items row">
+      <div class="section__item col-xs-12 col-sm-6 col-md-4">
+        <div class="section__item-wrap">
+          <h3>科比狂砍35</h3>
+          <p>在火箭对阵湖人的比赛中,科比单节15分,梦回巅峰狂砍35分~</p>
+        </div>
+      </div>
+      <div class="section__item col-xs-12 col-sm-6 col-md-4">
+        <div class="section__item-wrap">
+          <h3>勇士72胜</h3>
+          <p>今日勇士于马刺的比赛中,库里单节16分的气势再也压不住,末节的柳暗花明,不仅仅是拥抱72胜的欣喜若狂,也是终结连续33场客负马刺这一尴尬记录的仰天长啸,更是打破尘封20年纪录的蠢蠢欲动.</p>
+        </div>
+      </div>
+      <div class="section__item col-xs-12 col-sm-6 col-md-4">
+        <div class="section__item-wrap">
+          <h3>德罗赞得分里程碑</h3>
+          <p>猛龙客场挑战尼克斯,最终93-89战胜对手.此役德罗赞砍下27分,他职业生涯总得分达到9426分,超越文斯-卡特,跃居猛龙队史得分榜第2位,仅次于克里斯-波什.</p>
+        </div>
+      </div>
+      <div class="section__item col-xs-12 col-sm-6 col-md-4">
+        <div class="section__item-wrap">
+          <h3>安东尼21+6</h3>
+          <p>在尼克斯对阵猛龙的比赛中,安东尼里突外投,砍得21分6篮板.</p>
+        </div>
+      </div>
+      <div class="section__item col-xs-12 col-sm-6 col-md-4">
+        <div class="section__item-wrap">
+          <h3>马刺战勇士1胜3负</h3>
+          <p>马刺在主场以86-92不敌勇士,遭遇本赛季主场首败.他们主场连胜纪录停留在48场,包括创NBA纪录的开局主场39连胜.</p>
+        </div>
+      </div>
+      <div class="section__item col-xs-12 col-sm-6 col-md-4">
+        <div class="section__item-wrap">
+          <h3>哈登末节20分</h3>
+          <p>在火箭对阵湖人的比赛中,哈登末节20分,大力劈扣轰40+13.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+```
+
+### CSS
+```css
+  .section {
+    margin-bottom: 100px;
+  }
+  .section__items {
+    width: 100%;
+  }
+  .section__item-wrap {
+    margin: 5px;
+    padding: 10px;
+    background-color: #EEE;
+  }
+  .sample-5 .section__items {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
@@ -316,10 +390,12 @@
 ```
 
 ### 效果图
-![改版3效果图](../../public/img/cols-equal-height/sample-4.gif)
+![改版4效果图](../../public/img/cols-equal-height/sample-5.gif)
 
 ## 关键知识点
 > [clear](http://www.w3school.com.cn/cssref/pr_class_clear.asp)
+> 
+> [display: inline-table](http://www.w3school.com.cn/cssref/pr_class_display.asp)
 >>w3school
 
 > [flex](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
