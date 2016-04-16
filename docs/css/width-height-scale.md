@@ -11,7 +11,7 @@
 
 ### HTML
 ```html
-  <div class="section sample-1">
+  <div class="section">
     <h1 class="section__title">初版</h1>
     <div class="section__images row">
       <div class="section__image-wrap col-xs-3">
@@ -58,7 +58,7 @@
 ```
 
 ### 效果图
-![初版效果图](../../public/img/width-height-scale/sample-1.png)
+![初版效果图](../../public/img/width-height-scale/section.png)
 
 ### 吐槽
 OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个，前面三个位置都是空的，这不可能啊！等等，我需要静静～ 貌似图片不是同比例的宽高的，**这让我怎么搞，手动设置图片高度为50%？实时计算高度然后动态设置图片高度？<br><br><br>
@@ -70,39 +70,6 @@ OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个�
 ## 改版
 ### 思路
 使用padding百分比的方式来实现不规整元素宽高等比例。padding-left/right设置百分比时，是参考父元素的宽度；想当然的padding-top/bottom设置百分比时，是参考父元素的高度，Oh no no no... 它也是参考父元素的宽度哦。
-
-### HTML
-```html
-  <div class="section sample-2">
-    <h1 class="section__title">改版</h1>
-    <div class="section__images row">
-      <div class="section__image-wrap col-xs-3">
-        <img class="section__image" src="../../img/common/common-1.jpg">
-      </div>
-      <div class="section__image-wrap col-xs-3">
-        <img class="section__image" src="../../img/common/common-2.jpg">
-      </div>
-      <div class="section__image-wrap col-xs-3">
-        <img class="section__image" src="../../img/common/common-3.jpg">
-      </div>
-      <div class="section__image-wrap col-xs-3">
-        <img class="section__image" src="../../img/common/common-4.jpg">
-      </div>
-      <div class="section__image-wrap col-xs-3">
-        <img class="section__image" src="../../img/common/common-5.jpg">
-      </div>
-      <div class="section__image-wrap col-xs-3">
-        <img class="section__image" src="../../img/common/common-6.jpg">
-      </div>
-      <div class="section__image-wrap col-xs-3">
-        <img class="section__image" src="../../img/common/common-7.jpg">
-      </div>
-      <div class="section__image-wrap col-xs-3">
-        <img class="section__image" src="../../img/common/common-8.jpg">
-      </div>
-    </div>
-  </div>
-```
 
 ### CSS
 ```css
@@ -117,11 +84,11 @@ OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个�
   .section__image {
     width: 100%;
   }
-  .sample-2 .section__image-wrap {
+  .section-revision--padding .section__image-wrap {
     position: relative;
     padding: 12.5% 0 0 25%;
   }
-  .sample-2 .section__image {
+  .section-revision--padding .section__image {
     position: absolute;
     top: 0;
     left: 0;
@@ -131,10 +98,10 @@ OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个�
 ```
 
 ### 效果图
-![初版效果图](../../public/img/width-height-scale/sample-2.png)
+![初版效果图](../../public/img/width-height-scale/section-revision--padding.png)
 
 ## 效果对比图
-![初版效果图](../../public/img/width-height-scale/samples-vs.gif)
+![初版效果图](../../public/img/width-height-scale/sections-vs.gif)
 
 ## 关键知识点
 > | padding value | description                                       |

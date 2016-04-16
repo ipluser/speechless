@@ -25,46 +25,46 @@
     }
 
     @media (min-width: 768px) {
-      .sample-2 .section__item:nth-child(odd) {
+      .section-revision--clear .section__item:nth-child(odd) {
         clear: left;
       }
     }
     @media (min-width: 992px) {
-      .sample-2 .section__item:nth-child(odd) {
+      .section-revision--clear .section__item:nth-child(odd) {
         clear: none;
       }
-      .sample-2 .section__item:nth-child(4) {
+      .section-revision--clear .section__item:nth-child(4) {
         clear: left;
       }
     }
 
     @media (min-width: 768px) {
-      .sample-3 .section__item {
+      .section-revision--padding .section__item {
         position: relative;
         padding-top: 25%;
       }
 
-      .sample-3 .section__item-wrap {
+      .section-revision--padding .section__item-wrap {
         position: absolute;
         top: 0;
       }
     }
     @media (min-width: 1200px) {
-      .sample-3 .section__item {
+      .section-revision--padding .section__item {
         position: relative;
         padding-top: 20%;
       }
     }
 
-    .sample-4 .section__items {
+    .section-revision--table .section__items {
       display: table-row;
     }
-    .sample-4 .section__item {
+    .section-revision--table .section__item {
       display: inline-table;
       float: none;
     }
 
-    .sample-5 .section__items {
+    .section-revision--flex .section__items {
       display: -webkit-flex;
       display: flex;
       -webkit-flex-wrap: wrap;
@@ -75,7 +75,7 @@
 <body>
 <div class="container">
   <h1 class="text-center">多列等高</h1>
-  <div class="section sample-1">
+  <div class="section">
     <h1 class="section__title">初版</h1>
     <div class="section__items row">
       <div class="section__item col-xs-12 col-sm-6 col-md-4">
@@ -116,7 +116,7 @@
       </div>
     </div>
   </div>
-  <div class="section sample-2">
+  <div class="section section-revision--clear">
     <h1 class="section__title">改版1</h1>
     <div class="section__items row">
       <div class="section__item col-xs-12 col-sm-6 col-md-4">
@@ -157,7 +157,7 @@
       </div>
     </div>
   </div>
-  <div class="section sample-3">
+  <div class="section section-revision--padding">
     <h1 class="section__title">改版2</h1>
     <div class="section__items row">
       <div class="section__item col-xs-12 col-sm-6 col-md-4">
@@ -198,7 +198,7 @@
       </div>
     </div>
   </div>
-  <div class="section sample-4">
+  <div class="section section-revision--table">
     <h1 class="section__title">改版3</h1>
     <div class="section__items row">
       <div class="section__item col-xs-12 col-sm-6 col-md-4">
@@ -239,7 +239,7 @@
       </div>
     </div>
   </div>
-  <div class="section sample-5">
+  <div class="section section-revision--flex">
     <h1 class="section__title">改版4</h1>
     <div class="section__items row">
       <div class="section__item col-xs-12 col-sm-6 col-md-4">
