@@ -395,6 +395,11 @@ td, th {
     }
 
     #back_to_top {
+        top: 30px;
         right: 20px;
+    }
+
+    #edit {
+        top: 30px;
     }
 }
