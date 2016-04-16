@@ -69,7 +69,7 @@ $(function($) {
         init_searchbar();
       }
 
-      ditto.sidebar_id.on('click', 'a', (event) => {
+      ditto.sidebar_id.on('click', 'a', function(event) {
         event.stopPropagation();
         contentScrollTop();
       });
