@@ -27,9 +27,13 @@ $(function($) {
     github_username: null,
     github_repo: null,
 
+    contentScrollTop: contentScrollTop,
+
     // initialize function
-    run: initialize
+    run: initialize,
   };
+
+  var menu = new Array();
 
   function initialize() {
     // initialize sidebar and buttons
@@ -65,6 +69,50 @@ $(function($) {
         init_searchbar();
       }
 
+      ditto.sidebar_id.on('click', 'a', (event) => {
+        event.stopPropagation();
+        contentScrollTop();
+      });
+
+      // 初始化内容数组
+      var menuOL = $('#sidebar ul:first');
+      menuOL.attr('start', 0);
+
+      var EMPTY_SIGN = '#_$_NULL_';
+      var emptyIndex = 0;
+      menuOL.find('li a').map(function() {
+        var href = this.href;
+        if (href.search('#') != -1) {
+          menu.push(href.slice(href.indexOf('#')));
+        } else {
+          var tmpHref = EMPTY_SIGN + emptyIndex++;
+          this.href = tmpHref;
+          menu.push(tmpHref);
+        }
+      });
+
+      $('#pageup').on('click', function() {
+        for (var i = 0; i < menu.length; i++) {
+          if (location.hash === '') break;
+          if (menu[i] === location.hash) break;
+        }
+
+        if (i > 0) {
+          location.hash = menu[i - 1];
+          contentScrollTop();
+        }
+      });
+      $('#pagedown').on('click', function() {
+        for (var i = 0; i < menu.length; i++) {
+          if (location.hash === '') break;
+          if (menu[i] === location.hash) break;
+        }
+
+        if (i < menu.length - 1) {
+          location.hash = menu[i + 1];
+          contentScrollTop();
+        }
+      });
     }, "text").fail(function() {
       alert("Opps! can't find the sidebar file to display!");
     });
@@ -93,7 +141,14 @@ $(function($) {
           hash = "/" + ditto.index.replace(".md", "");
         }
 
-        window.open(ditto.base_url + hash + ".md");
+        var editUrl = ditto.base_url + hash + ".md";
+
+        if (ditto.beforeEdit && typeof ditto.beforeEdit === "function") {
+          var tmpEditUrl = ditto.beforeEdit(editUrl);
+          editUrl = tmpEditUrl && tmpEditUrl || editUrl;
+        }
+
+        window.open(editUrl);
         // open is better than redirecting, as the previous page history
         // with redirect is a bit messed up
       });
@@ -272,7 +327,9 @@ $(function($) {
   function normalize_paths() {
     // images
     ditto.content_id.find("img").map(function() {
-      var src = $(this).attr("src").replace(/^\.\//, "");
+      var src = $(this).attr("src");
+      src = src && src.trim().replace(/^\.\//, "") || "";
+
       if ($(this).attr("src").slice(0, 5) !== "http") {
         var url = location.hash.replace("#", "");
 
@@ -281,7 +338,7 @@ $(function($) {
         var base_dir = url.slice(0, url.length - 1).join("/");
 
         // normalize the path (i.e. make it absolute)
-        if (base_dir) {
+        if (base_dir && !src.startsWith("http://") && !src.startsWith("https://")) {
           $(this).attr("src", base_dir + "/" + src);
         } else {
           $(this).attr("src", src);
@@ -426,6 +483,22 @@ $(function($) {
       }
 
     }
+  }
+
+  var $window = $(window);
+  var $htmlBody = $('html, body');
+  var $content = $('#content');
+
+  function contentScrollTop(speed) {
+    if ($window.width() > 768) {
+      return ;
+    }
+
+    speed = speed || 500;
+
+    $htmlBody.stop().animate({
+      scrollTop: $content.position().top
+    }, 800);
   }
 
   window.ditto = ditto;
