@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     color: #333;
     margin: 0;
@@ -9,16 +13,13 @@ body {
 
 #sidebar {
     position: fixed;
-    width: 220px;
+    top: 0;
+    left: 0;
+    width: 240px;
     height: 100%;
-
+    padding: 15px 12px;
     overflow-y: scroll;
     overflow: -moz-scrollbars-vertical;
-
-    margin-right: 20px;
-    margin-top: 0;
-    padding-left: 25px;
-    padding-top: 0;
 
     box-shadow: 0 0 40px #CCC;
     -webkit-box-shadow: 0 0 40px #CCC;
@@ -28,7 +29,7 @@ body {
 
 #sidebar h1 {
     font-size: 25px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     padding-bottom: 0px;
 }
 
@@ -57,7 +58,8 @@ body {
     padding-top: 0;
 }
 
-#sidebar ul li:before {  /* a hack to have dashes as a list style */
+#sidebar ul li:before {
+    /* a hack to have dashes as a list style */
     content: "-";
     position: relative;
     left: -5px;
@@ -69,17 +71,13 @@ body {
     margin-left: 10px;
     padding: 0;
 
-    text-indent: -5px;  /* to compensate for the padding for the dash */
+    text-indent: -5px; /* to compensate for the padding for the dash */
     font-size: 12px;
 }
 
 #content {
-    width: 580px;
-
-    margin-left: 300px;
-    padding-top: 10px;
-    padding-bottom: 150px;
-
+    margin: 0 30px 0 280px;
+    padding: 15px 12px;
     text-align: justify;
     font-size: 1.0em;
 }
@@ -123,19 +121,29 @@ body {
     border-radius: 5px;
 }
 
+#content a img {
+    max-width: 100%;
+    display: inline-block;
+    margin: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
 #content ul {
     display: block;
     list-style-type: none;
 }
 
-#content ul li:before {  /* a hack to have dashes as a list style */
+#content ul li:before {
+    /* a hack to have dashes as a list style */
     content: "-";
     position: relative;
     left: -5px;
 }
 
 #content ul li {
-    text-indent: -5px;  /* to compensate for the padding for the dash */
+    text-indent: -5px; /* to compensate for the padding for the dash */
     font-size: 13px;
 }
 
@@ -158,8 +166,9 @@ body {
 
     height: 20px;
     line-height: 20px;
-    width: 50px;
-    top: 20px;
+    width: 80px;
+    top: 50px;
+    right: 100px;
 
     margin-left: 890px;
 
@@ -185,6 +194,7 @@ body {
     line-height: 20px;
     width: 50px;
     top: 50px;
+    right: 40px;
 
     margin-left: 890px;
 
@@ -222,8 +232,7 @@ input[type=search] {
     text-align: left;
 }
 
-.search_results{
-
+.search_results {
 
 }
 
@@ -270,58 +279,122 @@ input[type=search] {
     margin-bottom: 0;
 }
 
-
 #hide {
     display: none;
 }
 
 #content blockquote {
-  padding: 0 15px;
-  color: #777;
-  border-left: 4px solid #ddd;
-  margin: 0 0 16px;
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd;
+    margin: 0 0 16px;
 }
 
-#content blockquote>:first-child {
-  margin-top: 0;
+#content blockquote > :first-child {
+    margin-top: 0;
 }
 
-#content>*:last-child {
-  margin-bottom: 0 !important;
+#content > *:last-child {
+    margin-bottom: 0 !important;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 td, th {
-  padding: 0;
+    padding: 0;
 }
 
 #content table {
-  display: block;
-  width: 100%;
-  overflow: auto;
-  word-break: normal;
-  word-break: keep-all;
-  margin: 0 0 16px;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+    margin: 0 0 16px;
 }
 
 #content table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
 }
 
 #content table tr:nth-child(2n) {
-  background-color: #f8f8f8;
+    background-color: #f8f8f8;
 }
 
 #content table th, #content table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
+    padding: 6px 13px;
+    border: 1px solid #ddd;
 }
 
 #content table th {
-  font-weight: bold;
+    font-weight: bold;
+}
+
+#flip {
+    position: fixed;
+    height: 20px;
+    width: 100%;
+    bottom: 10px;
+    font-size: 10px;
+    text-align: center;
+    padding-left: 320px;
+}
+
+#pageup, #pagedown {
+    height: 20px;
+    width: 70px;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #AAA;
+    text-align: center;
+    line-height: 20px;
+    color: #FFF;
+}
+
+#pageup {
+    margin-right: 5px;
+}
+
+#pageup:hover,
+#pagedown:hover {
+    background-color: #444;
+    cursor: pointer;
+}
+
+#pagedown {
+    margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        position: static;
+        width: 100%;
+        margin: 0;
+        padding: 0 20px 20px;
+    }
+
+    #content {
+        margin: 0;
+        padding: 20px 20px 40px;
+    }
+
+    #edit {
+        display: none!important;
+    }
+
+    #flip {
+        padding: 0;
+    }
+
+    #loading {
+        margin-left: 45%;
+    }
+
+    #back_to_top {
+        right: 20px;
+    }
 }
