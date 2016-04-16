@@ -11,6 +11,6 @@
 
 ## 其他
 - [源码](https://github.com/ipluser/speechless)
-- [修订历史](https://github.com/ipluser/speechless/commits/master)
+- [修订历史](https://github.com/ipluser/speechless/commits/gh-pages)
 - [反馈意见](https://github.com/ipluser/speechless/issues)
 - [Commit Message Format](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit-message-format)
