@@ -8,38 +8,52 @@
   <meta name="keywords" content="speechless,sharing,css,html,html5,js,node,nodejs" />
   <title>speechless - Sharing and speechless</title>
 
-  <link rel="stylesheet" href="public/lib/normalize.css" />
-  <link rel="stylesheet" href="public/lib/ditto.css" />
-  <link rel="stylesheet" href="public/lib/prism-okaidia.css" />
+  <link rel="stylesheet" href="public/lib/normalize/normalize.css" />
+  <link rel="stylesheet" href="public/lib/magicbook/magicbook.min.css" />
+  <link rel="stylesheet" href="public/lib/prism/prism-okaidia.css" />
 </head>
 <body>
-  <div id="sidebar"></div>
-  <div id="content"></div>
+  <div class="magicbook-container"></div>
 
-  <div id="back_to_top">back to top</div>
-  <div id="edit">edit</div>
-
-  <div id="loading">Loading ...</div>
-  <div id="error">Opps! ... File not found!</div>
-  <div id="flip">
-    <div id="pageup">上一章</div><div id="pagedown">下一章</div>
-  </div>
-  <div class="progress-indicator-2"></div>
-
-  <script src="public/lib/jquery-1.11.0.min.js"></script>
-  <script src="public/lib/jquery-ui.min.js"></script>
-  <script src="public/lib/marked.js"></script>
-  <script src="public/lib/ditto.js"></script>
-  <script src="public/lib/prism.js"></script>
+  <script src="public/lib/jquery/jquery-1.11.0.min.js"></script>
+  <script src="public/lib/marked/marked.js"></script>
+  <script src="public/lib/prism/prism.js"></script>
+  <script src="public/lib/magicbook/magicbook.min.js"></script>
   <script>
-    $(function() {
-      ditto.document_title = "speechless";
-      ditto.index = "index.md";
-      ditto.sidebar_file = "sidebar.md";
-      ditto.base_url = "https://github.com/ipluser/speechless/edit/gh-pages";
-
-      ditto.run();
+    marked.setOptions({
+      highlight: function (code, lang) {
+        return Prism.highlight(code, Prism.languages[lang]);
+      }
     });
+
+    Magicbook.prototype.parser = marked;
+
+    var routeCallback = {
+      success: function routeCallbackSuccessForPrismStyle() {
+        var $codes = $('pre > code');
+        for (var index in $codes) {
+          var $code = $($codes[index]);
+          var codeClass = $code.attr('class');
+
+          if (!codeClass) {
+            return ;
+          }
+
+          codeClass = codeClass.replace(/^|\s+lang\-/g, ' language-');
+          $code.attr('class', codeClass);
+          $code.parent().addClass(codeClass);
+        }
+      }
+    };
+
+    var book = Magicbook({
+      container: '.magicbook-container',
+      homeUrl: 'home.md',
+      urlArgs: 'ver=0.5.0',
+      routeCallbackQueue: routeCallback
+    });
+
+    book.show();
   </script>
 </body>
 </html>
