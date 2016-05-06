@@ -8,51 +8,25 @@
   <meta name="keywords" content="speechless,sharing,css,html,html5,js,node,nodejs" />
   <title>speechless - Sharing and speechless</title>
 
-  <link rel="stylesheet" href="public/lib/normalize/normalize.css" />
-  <link rel="stylesheet" href="public/lib/magicbook/magicbook.min.css" />
-  <link rel="stylesheet" href="public/lib/prism/prism-okaidia.css" />
+  <link rel="stylesheet" type="text/css" href="public/lib/prism/prism-okaidia.css" />
+  <link rel="stylesheet" type="text/css" href="public/lib/magicbook/magicbook.min.css" />
+  <link rel="stylesheet" type="text/css" href="public/lib/magicbook/awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="public/lib/magicbook/agilities.min.css" />
 </head>
 <body>
-  <div class="magicbook-container"></div>
-
   <script src="public/lib/jquery/jquery-1.11.0.min.js"></script>
   <script src="public/lib/marked/marked.js"></script>
   <script src="public/lib/prism/prism.js"></script>
   <script src="public/lib/magicbook/magicbook.min.js"></script>
+  <script src="public/lib/magicbook/agilities.min.js"></script>
+  <script src="public/lib/magicbook/awesome.min.js"></script>
   <script>
-    marked.setOptions({
-      highlight: function (code, lang) {
-        return Prism.highlight(code, Prism.languages[lang]);
-      }
-    });
-
-    Magicbook.prototype.parser = marked;
-
-    var routeCallback = {
-      success: function routeCallbackSuccessForPrismStyle() {
-        var $codes = $('pre > code');
-        for (var index in $codes) {
-          var $code = $($codes[index]);
-          var codeClass = $code.attr('class');
-
-          if (!codeClass) {
-            return ;
-          }
-
-          codeClass = codeClass.replace(/^|\s+lang\-/g, ' language-');
-          $code.attr('class', codeClass);
-          $code.parent().addClass(codeClass);
-        }
-      }
-    };
-
-    var book = Magicbook({
-      container: '.magicbook-container',
+    var book = Magicbook.markdown('awesome', {
       homeUrl: 'home.md',
-      urlArgs: 'ver=0.5.0',
-      routeCallbackQueue: routeCallback
+      urlArgs: 'ver=0.5.0'
     });
 
+    book.agilities();
     book.show();
   </script>
 </body>
