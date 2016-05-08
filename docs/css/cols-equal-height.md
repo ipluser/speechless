@@ -117,7 +117,7 @@
 
 ## 改版2
 ### 思路
-参照[不规整元素的宽高等比例](http://ipluser.github.io/speechless/#docs/css/width-height-scale)，预估高度范围，使用`padding`属性完成～
+参照[不规整元素的宽高等比例](http://ipluser.github.io/speechless/#docs/css/width-height-scale.md)，预估高度范围，使用`padding`属性完成～
 
 ### CSS
 ```css
@@ -216,7 +216,7 @@
 > [clear](http://www.w3school.com.cn/cssref/pr_class_clear.asp)
 >>w3school
 
-> [padding](http://ipluser.github.io/speechless/#docs/css/width-height-scale)
+> [padding](http://ipluser.github.io/speechless/#docs/css/width-height-scale.md)
 >>ipluser
 
 > [display: inline-table](http://www.w3school.com.cn/cssref/pr_class_display.asp)
