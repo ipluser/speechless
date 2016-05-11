@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="sharing and speechless"/>
+  <meta name="keywords" content="speechless,sharing,css,html,html5,js,node,nodejs" />
+  <title>speechless - 前端规范 </title>
+
+  <link rel="stylesheet" href="../../css/style.css" />
+
+  <style>
+    .section {
+      text-align: center;
+      margin-bottom: 100px;
+    }
+    .button {
+      display: inline-block;
+      border-radius: 3px;
+      padding: 7px 12px;
+      border: 1px solid #D5D5D5;
+      background-image: linear-gradient(#EEE, #DDD);
+      font: 700 13px/18px Helvetica, arial;
+    }
+    .button--state-success {
+      color: #FFF;
+      background: #569E3D linear-gradient(#79D858, #569E3D) repeat-x;
+      border-color: #4A993E;
+    }
+    .button--state-danger {
+      color: #900;
+    }
+  </style>
+</head>
+<body>
+<div class="section">
+  <h1>BEM - Buttons实例</h1>
+  <div class="buttons-wrap">
+    <button class="button">
+      Normal button
+    </button>
+    <button class="button button--state-success">
+      Success button
+    </button>
+    <button class="button button--state-danger">
+      Danger button
+    </button>
+  </div>
+</div>
+</body>
+</html>
