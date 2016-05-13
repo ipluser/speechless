@@ -337,7 +337,7 @@ e.g.
 ### Others
 - [SUITCSS](http://suitcss.github.io/)
 - [Atomic](https://github.com/nemophrost/atomic-css)
-- [Airbnb CSS](https://github.com/airbnb/css)
+- [Airbnb CSS Style Guide](https://github.com/airbnb/css)
 
 ## 资源
 ### [在线实例](http://ipluser.github.io/speechless/public/view/architecture/frontend-conventions.html)
