@@ -18,3 +18,6 @@
 - [修订历史](https://github.com/ipluser/speechless/commits/gh-pages)
 - [反馈意见](https://github.com/ipluser/speechless/issues)
 - [Commit Message Format](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit-message-format)
+
+## 友情链接
+- [magicbook](http://ipluser.github.io/magicbook/)
