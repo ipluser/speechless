@@ -215,6 +215,19 @@ e.g.
 ```
 
 我们可以看到上面的代码中出现了不必要的`duplicating styles`。而`OOCSS`鼓励我们应该思考在不同元素中哪些样式是通用的，然后将这些通用的样式从模块、组件、对象等中抽离出来，使其能在任何地方能够复用，而不依赖于某个特定的容器。
+```css
+.title-heading {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  line-height: 1;
+  color: #777;
+  text-shadow: rgba(0, 0, 0, .3) 3px 3px 6px;
+}
+#footer .title-heading {
+  font-size: 1.5em;
+  text-shadow: rgba(0, 0, 0, .3) 2px 2px 4px;
+}
+```
 
 ### [SMACSS](https://smacss.com/)
 `Scalable and Modular Architecture for CSS`，可扩展模块化的CSS，它的核心就是结构化CSS代码，提出了一种CSS分类规则，分为五种类型：
