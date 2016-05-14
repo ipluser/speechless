@@ -14,6 +14,8 @@ Javascript规范直接参考`airbnb`:
 ### [BEM](http://getbem.com/)
 `Block Element Modifier`，它是一种前端命名方法，旨在帮助开发者实现模块化、可复用、高可维护性和结构化的CSS代码。
 
+`BEM`是定义了一种`css class`的命名规范，每个名称及其组成部分都是存在一定的含义。
+
 | Block | Element | Modifier |
 |:------|:--------|:---------|
 | 独立且有意义的实体, e.g. `header`, `container`, `menu`, `checkbox`, etc. | Block的一部分且没有独立的意义, e.g. `header title`, `menu item`, `list item`, etc. | Blocks或Elements的一种标志，可以用它改变其表现形式、行为、状态. e.g. `disabled`, `checked`, `fixed`, etc. |
@@ -128,6 +130,8 @@ e.g.
 ### [OOCSS](https://github.com/stubbornella/oocss/wiki)
 `Object Oriented CSS`，面向对象的CSS，旨在编写高可复用、低耦合和高扩展的CSS代码。
 
+`OOCSS`是以面向对象的思想去定义样式，将抽象和实现分离，抽离公共代码。
+
 #### 区分结构和样式
 在定义一个可重用性的组件库时，我们仅创建基础的结构（html）和基础的类名，不应该创建类似于`border, width, height, background`等样式规则，这样使组件库更灵活和可扩展性。组件库在不同环境下的样式所要求不一样，若未能区分其结构和样式，给其添加样式，会使其变成一个特定的组件库，而难以重用。
 
@@ -137,8 +141,8 @@ e.g.
 
 ```css
 .metadata{
-  font-size: 1.2em; 
-  text-align: left; 
+  font-size: 1.2em;
+  text-align: left;
   margin: 10px 0;
 }
 ```
@@ -220,6 +224,8 @@ e.g.
 - Module
 - State
 - Theme
+
+`SMACSS`定义了一种css文件的组织方式，其横向的切分，使css文件更具有结构化、高可维护性。
 
 #### Base
 Base是默认的样式，是对单个元素选择器（包括其属性选择器，伪类选择器，孩子/兄弟选择器）的基础样式设置，例如html, body, input[type=text], a:hover, etc.
@@ -338,6 +344,13 @@ e.g.
 - [SUITCSS](http://suitcss.github.io/)
 - [Atomic](https://github.com/nemophrost/atomic-css)
 - [Airbnb CSS Style Guide](https://github.com/airbnb/css)
+
+### [Web Components](http://webcomponents.org/)
+这么多CSS规范，貌似还是有冲突等问题，咋办呀？
+
+`世上没有完美方案，只有合适/最佳方案～`
+
+让我门一起期待[Web Components](http://webcomponents.org/)到来吧～
 
 ## 资源
 ### [在线实例](http://ipluser.github.io/speechless/public/view/architecture/frontend-conventions.html)
