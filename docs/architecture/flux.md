@@ -126,7 +126,7 @@ export default {
 ## Dispatcher
 <mark>Dispatcher</mark>注册所有的行为动作**Actions**，若发生行为动作，将会分发给**Stores**。<mark>Dispatcher</mark>有点类似路由或网关，当发生动作时，分发给指定的**Stores**做相应的状态处理：
 
-```css
+```js
 // public/scripts/dispatcher.js
 import {Dispatcher} from 'flux';
 
