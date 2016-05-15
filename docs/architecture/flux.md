@@ -40,7 +40,7 @@ $ npm start
 打开**react-flux-demo**中的<mark>main</mark>入口文件:
 
 ```js
-// public/dev/scripts/main.jsx
+// public/scripts/main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoController from './components/todoController.jsx';
@@ -52,7 +52,7 @@ ReactDOM.render(<TodoController />, document.getElementById('app'));
 此处采用[Controller View Pattern](http://blog.andrewray.me/the-reactjs-controller-view-pattern/)，引用了<mark>TodoController</mark>，其管理应用状态和行为：
 
 ```js
-// public/dev/scripts/components/todoController.jsx
+// public/scripts/components/todoController.jsx
 import React from 'react';
 
 import TodoAction from '../actions/todoAction.js';
@@ -73,7 +73,7 @@ export default React.createClass({
 <mark>TodoController</mark>对<mark>Todo</mark>组件指定了实际动作。而<mark>Todo</mark>代码非常简单：
 
 ```js
-// public/dev/scripts/components/todo.jsx
+// public/scripts/components/todo.jsx
 import React from 'react';
 
 import '../../styles/components/todo.scss';
@@ -83,7 +83,7 @@ export default function Todo(props) {
     return <li className="color--red" key={index}>{item}</li>;
   });
 
-  return <div className="todo"> 
+  return <div className="todo">
     <ul>{list}</ul>
     <button className="todo__click-btn" onClick={props.newItem}>Todo</button>
   </div>;
@@ -98,7 +98,7 @@ export default function Todo(props) {
 **View**的实际动作交由<mark>TodoAction</mark>管理，其通知**Dispatcher**发生的动作类型和数据：
 
 ```js
-// public/dev/scripts/actions/todoAction.js
+// public/scripts/actions/todoAction.js
 import AppDispatcher from '../dispatcher.js';
 import TodoConstant from '../constants/todoConstant.js';  // 动作类型-常量对象
 
@@ -117,7 +117,7 @@ export default new TodoAction();
 <mark>TodoConstant</mark>常量对象：
 
 ```js
-// public/dev/scripts/constants/todoConstant.js
+// public/scripts/constants/todoConstant.js
 export default {
   ADD_ITEM: 'TODO_ADD_ITEM'
 }
@@ -127,7 +127,7 @@ export default {
 <mark>Dispatcher</mark>注册所有的行为动作**Actions**，若发生行为动作，将会分发给**Stores**。<mark>Dispatcher</mark>有点类似路由或网关，当发生动作时，分发给指定的**Stores**做相应的状态处理：
 
 ```css
-// public/dev/scripts/dispatcher.js
+// public/scripts/dispatcher.js
 import {Dispatcher} from 'flux';
 
 import TodoStore from './stores/todoStore';
@@ -152,7 +152,7 @@ export default AppDispatcher;
 <mark>TodoStore</mark>管理应用状态，当状态发生改变时，会调用那些监听了该状态更新的**View**回调函数：
 
 ```js
-// public/dev/scripts/stores/todoStore.js
+// public/scripts/stores/todoStore.js
 import EventEmitter from 'events';
 
 class TodoStore extends EventEmitter {
@@ -190,7 +190,7 @@ export default new TodoStore();
 <mark>TodoController</mark>初始化状态，同时监听<mark>TodoStore</mark>的状态更新。一旦状态发生改变，将会触发**onListChange**事件，设置应用状态，并以属性形式传递给<mark>Todo</mark>组件，使其重新渲染：
 
 ```js
-// public/dev/scripts/components/todoController.jsx
+// public/scripts/components/todoController.jsx
 import React from 'react';
 
 import TodoAction from '../actions/todoAction.js';
@@ -235,4 +235,3 @@ export default React.createClass({
 
 ## 源代码
 [react-flux-demo](https://github.com/ipluser/react-flux-demo)
-
