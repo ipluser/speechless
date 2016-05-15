@@ -12,6 +12,7 @@
 
 - Architecture
  - [前端规范](#docs/architecture/frontend-conventions.md)
+ - [Flux 单向数据流](#docs/architecture/flux.md)
 
 ## 其他
 - [源码](https://github.com/ipluser/speechless)
