@@ -5,39 +5,35 @@
 
 请事先对[React](http://facebook.github.io/react/)和[ES6](http://es6.ruanyifeng.com/)进行了解。
 
-由于Flux有很多种实现框架，本文中是采用Facebook官方的[Flux](https://github.com/facebook/flux)。
+本文采用Facebook官方的[Flux](https://github.com/facebook/flux)。
 
-## 安装实例
-本文中以一个简单的**Todo List**实例来讲解**Flux**：
-
+## 快速入门
 ```
 $ git clone https://github.com/ipluser/react-flux-demo.git
 $ cd react-flux-demo
 $ npm start
 ```
 
-浏览器将会显示**Todo**界面（若未显示，请访问`http://127.0.0.1:8080`）：
+浏览器将会自动打开一个新的网页（若没有，请访问`http://127.0.0.1:8080`）：
 
 ![Demo](../../public/img/architecture/flux__demo.png)
 
-## 核心思想
-**Flux**是一种单向数据流的架构体系，其核心思想：
+## 核心概念
+Flux应用主要分为四个主要的部门：Views, Actions, Dispatcher, Stores.
 
 | Name | Description |
 |:-----|:------------|
-| view | 视图层 |
-| Action | 行为动作层，视图层发出的动作如`click event` |
-| Dispatcher | 分发中心，接受动作和调用数据流向中的回调函数 |
-| Store | 数据层，管理应用状态，若状态改变，马上通知View层重新渲染 |
-
-**Flux**数据流向图：
+| Views | 视图层，React组件 |
+| Actions | 行为动作层，视图层触发的动作，例如`click event` |
+| Dispatcher | 分发中心，注册/接受动作，调用数据流向中的回调函数 |
+| Stores | 数据层，管理应用状态，广播通知Views状态发生改变 |
 
 ![Flux Data Flow](../../public/img/architecture/flux__data-flow.png)
 
-上图中可以看出**Flux**总是一种单向的流动，不存在数据双向流动。数据的流向总是清晰可见，可以很清楚的知道应用当前的状态和数据情况。
+单向数据流是Flux应用的核心。Dispatcher, Stores, Views是独立的输入和输出节点，而Action是一个包含数据和动作类型的简单对象。
 
-## View
-打开**react-flux-demo**中的<mark>main</mark>入口文件:
+## Views
+打开项目入口文件***main.jsx***:
 
 ```js
 // public/scripts/main.jsx
@@ -45,32 +41,35 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoController from './components/todoController.jsx';
 
-ReactDOM.render(<TodoController />, document.getElementById('app'));
-
+ReactDOM.render(<TodoController />, document.body);
 ```
 
-此处采用[Controller View Pattern](http://blog.andrewray.me/the-reactjs-controller-view-pattern/)，引用了<mark>TodoController</mark>，其管理应用状态和行为：
+上面代码中采用了[ReactJS Controller View](http://blog.andrewray.me/the-reactjs-controller-view-pattern/)模式，一个"Controller View"是应用中最顶层的组件，它管理着所有应用状态，并以属性方式传递给子组件。 接下来我们看看***toToController.jsx***:
 
 ```js
 // public/scripts/components/todoController.jsx
 import React from 'react';
 
 import TodoAction from '../actions/todoAction.js';
+import TodoStore from '../stores/todoStore.js';
 import Todo from './todo.jsx';
 
-export default React.createClass({
+export default class TodoController extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   newItem() {
-  	TodoAction.addItem('new item');
-  },
+    TodoAction.addItem('new item');
+  }
 
   render() {
-  	return <Todo newItem={this.newItem} />;
+    return <Todo newItem={this.newItem} />;
   }
-})
-
+}
 ```
 
-<mark>TodoController</mark>对<mark>Todo</mark>组件指定了实际动作。而<mark>Todo</mark>代码非常简单：
+正如你所看到的，**TodoController**仅仅给**Todo**子组件指定了*newItem*动作。**Todo**接收属性和渲染组件：
 
 ```js
 // public/scripts/components/todo.jsx
@@ -83,24 +82,24 @@ export default function Todo(props) {
     return <li className="color--red" key={index}>{item}</li>;
   });
 
-  return <div className="todo">
-    <ul>{list}</ul>
-    <button className="todo__click-btn" onClick={props.newItem}>Todo</button>
-  </div>;
+  return (
+    <div className="todo">
+      <ul>{list}</ul>
+      <button className="todo__click-btn" onClick={props.newItem}>Todo</button>
+    </div>
+  );
 }
 ```
 
-<mark>Todo</mark>组件不包含状态，仅为逻辑组件，使组件更轻薄，更易测试和通用。
+一旦点击todo按钮，**TodoController**将会触发一个**addItem**动作。
 
-<mark>TodoController</mark>给<mark>Todo</mark>指定了一个动作，当点击Todo按钮，将会触发<mark>TodoAction.addItem</mark>动作。
-
-## Action
-**View**的实际动作交由<mark>TodoAction</mark>管理，其通知**Dispatcher**发生的动作类型和数据：
+## Actions
+**TodoAction**将数据和动作类型传递给**Dispatcher**去分发数据流:
 
 ```js
 // public/scripts/actions/todoAction.js
 import AppDispatcher from '../dispatcher.js';
-import TodoConstant from '../constants/todoConstant.js';  // 动作类型-常量对象
+import TodoConstant from '../constants/todoConstant.js';
 
 class TodoAction {
   addItem(text) {
@@ -114,42 +113,43 @@ class TodoAction {
 export default new TodoAction();
 ```
 
-<mark>TodoConstant</mark>常量对象：
+**todoConstants.js**是一个包含所有动作类型的常量对象:
 
 ```js
 // public/scripts/constants/todoConstant.js
 export default {
   ADD_ITEM: 'TODO_ADD_ITEM'
-}
+};
 ```
 
 ## Dispatcher
-<mark>Dispatcher</mark>注册所有的行为动作**Actions**，若发生行为动作，将会分发给**Stores**。<mark>Dispatcher</mark>有点类似路由或网关，当发生动作时，分发给指定的**Stores**做相应的状态处理：
+**Dispatcher**一个分发中心，它管理着应用的所有数据流向。每一个**Store**在这里注册，并提供一个回调函数:
 
 ```js
 // public/scripts/dispatcher.js
-import {Dispatcher} from 'flux';
+import { Dispatcher } from 'flux';
 
 import TodoStore from './stores/todoStore';
 import TodoConstant from './constants/todoConstant';
 
-let AppDispatcher = new Dispatcher();
+const AppDispatcher = new Dispatcher();
 
-TodoStore.dispatchToken = AppDispatcher.register(function (payload) {
-  switch(payload.actionType) {
-  	case TodoConstant.ADD_ITEM:
-  	  TodoStore.addItem(payload.text);
-  	  break;
+TodoStore.dispatchToken = AppDispatcher.register(payload => {
+  switch (payload.actionType) {
+    case TodoConstant.ADD_ITEM:
+      TodoStore.addItem(payload.text);
+      break;
+    default:
   }
 });
 
 export default AppDispatcher;
 ```
 
-当发生**Todo - ADD_ITEM**动作时，触发**TodoStore.addItem**。
+上面代码中可以看到，当**TodoAction**提供给**Dispatcher**一个新动作时，**TodoStore**将会通过注册时的回调函数接受动作的行为。
 
-## Store
-<mark>TodoStore</mark>管理应用状态，当状态发生改变时，会调用那些监听了该状态更新的**View**回调函数：
+## Stores
+**TodoStore**包含状态和业务逻辑。它的职责有点类似MVC中的*model*：
 
 ```js
 // public/scripts/stores/todoStore.js
@@ -157,37 +157,37 @@ import EventEmitter from 'events';
 
 class TodoStore extends EventEmitter {
   constructor() {
-  	super();
-  	this.items = [];
+    super();
+    this.items = [];
   }
 
   getAll() {
-  	return this.items;
+    return this.items;
   }
 
   addItem(text) {
-  	this.items.push(text);
-  	this.change();
+    this.items.push(text);
+    this.change();
   }
 
   change() {
-  	this.emit('change');
+    this.emit('change');
   }
 
   addListener(name, callback) {
-  	this.on(name, callback);
+    this.on(name, callback);
   }
 
   removeListener(name, callback) {
-  	this.removeListener(name, callback);
+    this.removeListener(name, callback);
   }
 }
 
 export default new TodoStore();
 ```
 
-## View
-<mark>TodoController</mark>初始化状态，同时监听<mark>TodoStore</mark>的状态更新。一旦状态发生改变，将会触发**onListChange**事件，设置应用状态，并以属性形式传递给<mark>Todo</mark>组件，使其重新渲染：
+## Views, again
+再回到**TodoController**中，我们初始化应用的状态，同时监听**Store**的状态改变事件：
 
 ```js
 // public/scripts/components/todoController.jsx
@@ -197,38 +197,40 @@ import TodoAction from '../actions/todoAction.js';
 import TodoStore from '../stores/todoStore.js';
 import Todo from './todo.jsx';
 
-export default React.createClass({
-  getInitialState() {
-  	return {
-  	  items: TodoStore.getAll()
-  	}
-  },
+export default class TodoController extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { items: TodoStore.getAll() };
+    this.onListChange = this.onListChange.bind(this);
+  }
 
   componentDidMount() {
-  	TodoStore.addListener('change', this.onListChange);
-  },
+    TodoStore.addListener('change', this.onListChange);
+  }
 
   componentWillUnmount() {
-  	TodoStore.removeListener('change', this.onListChange);
-  },
-
-  newItem() {
-  	TodoAction.addItem('new item');
-  },
+    TodoStore.removeListener('change', this.onListChange);
+  }
 
   onListChange() {
     this.setState({
       items: TodoStore.getAll()
     });
-  },
+  }
+
+  newItem() {
+    TodoAction.addItem('new item');
+  }
 
   render() {
-  	return <Todo items={this.state.items} newItem={this.newItem} />;
+    return <Todo items={this.state.items} newItem={this.newItem} />;
   }
-})
+}
 ```
 
-## 致谢
+一旦**TodoController**接受到应用状态改变，将会触发**Todo**重新渲染。
+
+## 参考
 - [Facebokk Flux](https://facebook.github.io/flux/docs/overview.html)
 - [Andrew - Controller-View](http://blog.andrewray.me/the-reactjs-controller-view-pattern/)
 - [ruanyifeng - Flux 架构入门教程](http://www.ruanyifeng.com/blog/2016/01/flux.html)
