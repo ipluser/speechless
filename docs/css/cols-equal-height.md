@@ -5,7 +5,7 @@
 设计师说某页面的新闻介绍，由于新闻内容不同导致显示区域的高度不一致，现需要使其高度视觉上保持一致。小加同学觉得必须迅速解决，让设计师妹妹知道我们程序师哥哥的威武。原型设计稿大致如下:
 ![原型设计稿](../../public/img/cols-equal-height/design.png)
 
-## 初版
+## bootstrap 栅格系统
 ### 思路
 直接使用bootstrap的col-*来实现这个简单的布局就OK啦～
 
@@ -80,7 +80,7 @@
 -----
 <br>
 
-## 改版1
+## clear 清楚浮动
 ### 思路
 由于内容不同的新闻其高度不一致，使元素左浮动卡在高度最大的右边，可以使用`clear: left;`来解决这个问题。
 
@@ -115,7 +115,7 @@
 ### 效果图
 ![改版1效果图](../../public/img/cols-equal-height/section-revision--clear.gif)
 
-## 改版2
+## padding + position
 ### 思路
 参照[不规整元素的宽高等比例](http://ipluser.github.io/speechless/#docs/css/width-height-scale.md)，预估高度范围，使用`padding`属性完成～
 
@@ -155,7 +155,7 @@
 ### 效果图
 ![改版2效果图](../../public/img/cols-equal-height/section-revision--padding.gif)
 
-## 改版3
+## table
 ### 思路
 `table`中一行的每个格子都是等高的，那么我们可以使用css的`display: inline-table`来解决这个问题。
 
@@ -184,7 +184,7 @@
 ### 效果图
 ![改版3效果图](../../public/img/cols-equal-height/section-revision--table.gif)
 
-## 改版4
+## flexbox
 ### 思路
 使用神器`flexbox`，它能简单的搞定一切～
 

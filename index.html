@@ -13,6 +13,9 @@
   <link rel="stylesheet" type="text/css" href="public/lib/magicbook/magicbook.min.css" />
   <link rel="stylesheet" type="text/css" href="public/lib/magicbook/awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="public/lib/magicbook/agilities.min.css" />
+  <link rel="stylesheet" type="text/css" href="public/lib/magicbook/magicbook-plugin-number.min.css" />
+  <link rel="stylesheet" type="text/css" href="public/lib/magicbook/magicbook-plugin-collapse.min.css" />
+  <link rel="stylesheet" type="text/css" href="public/lib/magicbook/magicbook-plugin-catelog.min.css" />
 </head>
 <body>
   <script src="public/lib/jquery/jquery-1.11.0.min.js"></script>
@@ -20,15 +23,26 @@
   <script src="public/lib/prism/prism.js"></script>
   <script src="public/lib/prism/prism-bash.min.js"></script>
   <script src="public/lib/magicbook/magicbook.min.js"></script>
-  <script src="public/lib/magicbook/agilities.min.js"></script>
   <script src="public/lib/magicbook/awesome.min.js"></script>
+  <script src="public/lib/magicbook/agilities.min.js"></script>
+  <script src="public/lib/magicbook/magicbook-plugin-number.min.js"></script>
+  <script src="public/lib/magicbook/magicbook-plugin-collapse.min.js"></script>
+  <script src="public/lib/magicbook/magicbook-plugin-catelog.min.js"></script>
   <script>
     var book = Magicbook.markdown('awesome', {
       homeUrl: 'home.md',
-      urlArgs: 'ver=0.6.0'
+      urlArgs: 'ver=0.6.0',
+      title: 'speechless - Sharing and speechless'
     });
 
-    book.agilities();
+    book.agilities({
+      turnPage: {
+        selector: '#-speechless- > a, #chapters+ul li > a, #chapters+ul li > p'
+      }
+    });
+    book.numberNavigator({ selector: '#chapters+ul' });
+    book.collapseNavigator({ selector: '#chapters+ul', expand: false });
+    book.carryCatelog({ locationSelector: '.magicbook-content h1+p', catelogSelector: 'h2' });
     book.show();
   </script>
 </body>
