@@ -11,7 +11,7 @@
  - [多列等高](#docs/css/cols-equal-height.md)
 
 - Architecture
- - [前端规范](#docs/architecture/frontend-conventions.md)
+ - [前端规范(ES6\BEM\OOCSS\SMACSS)](#docs/architecture/frontend-conventions.md)
  - [Flux 单向数据流](#docs/architecture/flux.md)
 
 ## Others

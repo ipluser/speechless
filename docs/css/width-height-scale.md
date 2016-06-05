@@ -58,7 +58,7 @@
 ```
 
 ### 效果图
-![初版效果图](../../public/img/width-height-scale/section.png)
+![bootstrap栅格系统效果图](../../public/img/width-height-scale/section.png)
 
 ### 吐槽
 OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个，前面三个位置都是空的，这不可能啊！等等，我需要静静～ 貌似图片不是同比例的宽高的，**这让我怎么搞，手动设置图片高度为50%？实时计算高度然后动态设置图片高度？<br><br><br>
@@ -98,10 +98,10 @@ OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个�
 ```
 
 ### 效果图
-![初版效果图](../../public/img/width-height-scale/section-revision--padding.png)
+![padding/position效果图](../../public/img/width-height-scale/section-revision--padding.png)
 
 ## 效果对比图
-![初版效果图](../../public/img/width-height-scale/sections-vs.gif)
+![对比效果图](../../public/img/width-height-scale/sections-vs.gif)
 
 ## 关键知识点
 > | padding value | description                                       |

@@ -70,7 +70,7 @@
 ```
 
 ### 效果图
-![初版效果图](../../public/img/cols-equal-height/section.gif)
+![bootstrap栅格系统效果图](../../public/img/cols-equal-height/section.gif)
 
 ### 吐槽
 什么情况，一行三个、二个，这看起来太乱了，肯定会遭设计师鄙视的～ 必须采用淫技解决这个问题，让设计师妹妹崇拜哥～
@@ -80,7 +80,7 @@
 -----
 <br>
 
-## clear 清楚浮动
+## clear 清除浮动
 ### 思路
 由于内容不同的新闻其高度不一致，使元素左浮动卡在高度最大的右边，可以使用`clear: left;`来解决这个问题。
 
@@ -113,7 +113,7 @@
 ```
 
 ### 效果图
-![改版1效果图](../../public/img/cols-equal-height/section-revision--clear.gif)
+![clear效果图](../../public/img/cols-equal-height/section-revision--clear.gif)
 
 ## padding + position
 ### 思路
@@ -153,7 +153,7 @@
 ```
 
 ### 效果图
-![改版2效果图](../../public/img/cols-equal-height/section-revision--padding.gif)
+![padding/position效果图](../../public/img/cols-equal-height/section-revision--padding.gif)
 
 ## table
 ### 思路
@@ -182,7 +182,7 @@
 ```
 
 ### 效果图
-![改版3效果图](../../public/img/cols-equal-height/section-revision--table.gif)
+![table效果图](../../public/img/cols-equal-height/section-revision--table.gif)
 
 ## flexbox
 ### 思路
@@ -210,7 +210,7 @@
 ```
 
 ### 效果图
-![改版4效果图](../../public/img/cols-equal-height/section-revision--flex.gif)
+![flexbox效果图](../../public/img/cols-equal-height/section-revision--flex.gif)
 
 ## 关键知识点
 > [clear](http://www.w3school.com.cn/cssref/pr_class_clear.asp)
