@@ -9,6 +9,9 @@ Sharing and speechless
 - [不规整元素的高宽等比例](docs/css/width-height-scale.md)
 - [多列等高](docs/css/cols-equal-height.md)
 
+## JS
+- [debounce(防抖)和throttle(节流)](docs/js/debounce-throttle.md)
+
 ## Architecture
  - [前端规范](docs/architecture/frontend-conventions.md)
  - [Flux 单向数据流](docs/architecture/flux.md)

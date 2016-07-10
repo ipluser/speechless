@@ -16,7 +16,7 @@ $ npm start
 
 浏览器将会自动打开一个新的网页（若没有，请访问`http://127.0.0.1:8080`）：
 
-![Demo](../../public/img/architecture/flux__demo.png)
+![Demo](../../public/img/architecture/flux/flux__demo.png)
 
 ## 核心概念
 Flux应用主要分为四个主要的部门：Views, Actions, Dispatcher, Stores.
@@ -28,7 +28,7 @@ Flux应用主要分为四个主要的部门：Views, Actions, Dispatcher, Stores
 | Dispatcher | 分发中心，注册/接受动作，调用数据流向中的回调函数 |
 | Stores | 数据层，管理应用状态，广播通知Views状态发生改变 |
 
-![Flux Data Flow](../../public/img/architecture/flux__data-flow.png)
+![Flux Data Flow](../../public/img/architecture/flux/flux__data-flow.png)
 
 单向数据流是Flux应用的核心。Dispatcher, Stores, Views是独立的输入和输出节点，而Action是一个包含数据和动作类型的简单对象。
 

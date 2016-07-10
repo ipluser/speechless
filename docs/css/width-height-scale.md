@@ -3,7 +3,7 @@
 
 ## 需求
 设计师希望页面的图片区域，以宽高为2:1比例且所有图片的等宽和等高的方式展示。小加同学觉得设计师这需求太容易，分分钟搞定，拿到图片后便开始刷刷的撸代码。原型设计稿大致如下:<br>
-![原型图](../../public/img/width-height-scale/design.png)
+![原型图](../../public/img/css/width-height-scale/design.png)
 
 ## bootstrap 栅格系统
 ### 思路
@@ -58,7 +58,7 @@
 ```
 
 ### 效果图
-![bootstrap栅格系统效果图](../../public/img/width-height-scale/section.png)
+![bootstrap栅格系统效果图](../../public/img/css/width-height-scale/section.png)
 
 ### 吐槽
 OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个，前面三个位置都是空的，这不可能啊！等等，我需要静静～ 貌似图片不是同比例的宽高的，**这让我怎么搞，手动设置图片高度为50%？实时计算高度然后动态设置图片高度？<br><br><br>
@@ -98,10 +98,10 @@ OMG，这这这...是什么情况啊～ 一行四个，怎么第二行就一个�
 ```
 
 ### 效果图
-![padding/position效果图](../../public/img/width-height-scale/section-revision--padding.png)
+![padding/position效果图](../../public/img/css/width-height-scale/section-revision--padding.png)
 
 ## 效果对比图
-![对比效果图](../../public/img/width-height-scale/sections-vs.gif)
+![对比效果图](../../public/img/css/width-height-scale/sections-vs.gif)
 
 ## 关键知识点
 > | padding value | description                                       |

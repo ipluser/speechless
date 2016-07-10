@@ -3,7 +3,7 @@
 
 ## 需求
 设计师说某页面的新闻介绍，由于新闻内容不同导致显示区域的高度不一致，现需要使其高度视觉上保持一致。小加同学觉得必须迅速解决，让设计师妹妹知道我们程序师哥哥的威武。原型设计稿大致如下:
-![原型设计稿](../../public/img/cols-equal-height/design.png)
+![原型设计稿](../../public/img/css/cols-equal-height/design.png)
 
 ## bootstrap 栅格系统
 ### 思路
@@ -70,7 +70,7 @@
 ```
 
 ### 效果图
-![bootstrap栅格系统效果图](../../public/img/cols-equal-height/section.gif)
+![bootstrap栅格系统效果图](../../public/img/css/cols-equal-height/section.gif)
 
 ### 吐槽
 什么情况，一行三个、二个，这看起来太乱了，肯定会遭设计师鄙视的～ 必须采用淫技解决这个问题，让设计师妹妹崇拜哥～
@@ -113,7 +113,7 @@
 ```
 
 ### 效果图
-![clear效果图](../../public/img/cols-equal-height/section-revision--clear.gif)
+![clear效果图](../../public/img/css/cols-equal-height/section-revision--clear.gif)
 
 ## padding + position
 ### 思路
@@ -153,7 +153,7 @@
 ```
 
 ### 效果图
-![padding/position效果图](../../public/img/cols-equal-height/section-revision--padding.gif)
+![padding/position效果图](../../public/img/css/cols-equal-height/section-revision--padding.gif)
 
 ## table
 ### 思路
@@ -182,7 +182,7 @@
 ```
 
 ### 效果图
-![table效果图](../../public/img/cols-equal-height/section-revision--table.gif)
+![table效果图](../../public/img/css/cols-equal-height/section-revision--table.gif)
 
 ## flexbox
 ### 思路
@@ -210,7 +210,7 @@
 ```
 
 ### 效果图
-![flexbox效果图](../../public/img/cols-equal-height/section-revision--flex.gif)
+![flexbox效果图](../../public/img/css/cols-equal-height/section-revision--flex.gif)
 
 ## 关键知识点
 > [clear](http://www.w3school.com.cn/cssref/pr_class_clear.asp)

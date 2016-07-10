@@ -89,7 +89,7 @@ e.g.
 ```
 
 #### Buttons实例
-![buttons](../../public/img/architecture/buttons.jpg)
+![buttons](../../public/img/architecture/frontend-conventions/buttons.jpg)
 
 **HTML**
 ```html

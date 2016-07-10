@@ -1,5 +1,5 @@
 # 迷惑的position
-小加发现实际开发中position使用频率很高,但很多人却对position不是很了解,导致开发中出现各种问题,现在让我门一起来看看这个迷惑的position吧~
+小加发现实际开发中position使用频率很高，但很多人却对position不是很了解，导致开发中出现各种问题，现在让我们一起来看看这个迷惑的position吧~
 
 ## static
 元素未定位，默认出现在普通流中，即元素从左到右，从上到下的方式布局～
@@ -52,7 +52,7 @@
 ```
 
 ### 效果图
-![普通流](../../public/img/position/position--static.png)
+![普通流](../../public/img/css/position/position--static.png)
 
 
 ## relative
@@ -69,7 +69,7 @@
 ### 效果图
 对比static和relative两个效果图，你可以看到`left box`确实是相对于其所在正常流位置进行定位，向右移动了`100像素`。
 
-![相对定位](../../public/img/position/position--relative.png)
+![相对定位](../../public/img/css/position/position--relative.png)
 
 
 ## absolute
@@ -86,7 +86,7 @@
 ### 效果图
 由于查找`left box`的祖先元素中，未发现有设置非`static`的元素，其绝对定位是**相对于根元素**进行移动的。
 
-![绝对定位-根元素](../../public/img/position/position--absolute-root.gif)
+![绝对定位-根元素](../../public/img/css/position/position--absolute-root.gif)
 
 ---
 ### relative和absolute对比
@@ -109,7 +109,7 @@
 
 我们再对比下relative和此时的效果图，你会发现`left box`的实现效果一致，但是`right box`却有一点不一样。这是因为当元素设置`relative`时，其元素依然会<mark>占据所在普通流的的位置</mark>，而`absolute`会<mark>脱离普通文档流</mark>，此时`right box`就往左边布局了。
 
-![绝对定位-父元素](../../public/img/position/position--absolute-parent.png)
+![绝对定位-父元素](../../public/img/css/position/position--absolute-parent.png)
 
 
 ## fixed
@@ -141,15 +141,15 @@
 ### 效果图
 你可以看到随着浏览器滚动，其元素的位置依然在浏览器窗口的顶部，未发生任何变化。
 
-![固定定位](../../public/img/position/position--fixed.gif)
+![固定定位](../../public/img/css/position/position--fixed.gif)
 
 ## 关键知识点
 > | value | description |
 > |:------|:------------|
-> | static | 默认值。没有定位，元素出现在<mark>正常的流中</mark>（忽略 top, bottom, left, right 或者 z-index 声明）。 |
+> | static | 默认值。没有定位，元素出现在<mark>正常的流中</mark>（忽略 top， bottom， left， right 或者 z-index 声明）。 |
 > | relative | 生成相对定位的元素，<mark>相对于**其正常位置**</mark>进行定位。因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。 |
-> | absolute | 生成绝对定位的元素，<mark>相对于**static**定位以外</mark>的第一个父元素进行定位。元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。 |
-> | fixed | 生成绝对定位的元素，<mark>相对于**浏览器窗口**</mark>进行定位。元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。 |
+> | absolute | 生成绝对定位的元素，<mark>相对于**static**定位以外</mark>的第一个父元素进行定位。元素的位置通过 "left"， "top"， "right" 以及 "bottom" 属性进行规定。 |
+> | fixed | 生成绝对定位的元素，<mark>相对于**浏览器窗口**</mark>进行定位。元素的位置通过 "left"， "top"， "right" 以及 "bottom" 属性进行规定。 |
 > | inherit | 规定应该从<mark>父元素继承</mark> position 属性的值。 |
 >>w3school
 

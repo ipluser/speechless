@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="sharing and speechless"/>
+  <meta name="keywords" content="speechless,sharing,css,html,html5,js,node,nodejs" />
+  <title>speechless - debounce(防抖)和throttle(节流)</title>
+
+  <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+
+  <style>
+    .label {
+      color: #000;
+      margin-right: 20px;
+    }
+    .inline-block {
+      display: inline-block;
+    }
+    .container {
+      margin-top: 50px;
+    }
+
+    .section {
+      margin-bottom: 100px;
+    }
+    .section__title {
+      margin-bottom: 80px;
+    }
+    .section__boxes {
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="section">
+    <h3 class="section__title text-center">debounce - 防抖</h3>
+    <div class="section__boxes">
+      <div class="form-group">
+        <label for="debounceInput">Letters</label>
+        <input type="text" class="form-control" id="debounceInput">
+      </div>
+      <div class="form-group">
+        <label for="debounceTarget">ToUpperCase</label>
+        <input type="text" class="form-control" id="debounceTarget" disabled="disabled">
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <h3 class="section__title text-center">throttle - 节流</h3>
+    <div class="section__boxes">
+      <div class="form-group">
+        <label for="throttleInput">Letters</label>
+        <input type="text" class="form-control" id="throttleInput">
+      </div>
+      <div class="form-group">
+        <label for="throttleTarget">ToUpperCase</label>
+        <input type="text" class="form-control" id="throttleTarget" disabled="disabled">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function debounce(fn, delay) {
+    var ctx;
+    var args;
+    var timer = null;
+
+    var later = function () {
+      fn.apply(ctx, args);
+      timer = null;
+    };
+
+    return function () {
+      ctx = this;
+      args = arguments;
+
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
+
+      timer = setTimeout(later, delay);
+    };
+  }
+
+  function throttle(fn, delay) {
+    var ctx;
+    var args;
+    var previous = Date.now();
+
+    var later = function () {
+      fn.apply(ctx, args);
+    };
+
+    return function () {
+      ctx = this;
+      args = arguments;
+      var now = Date.now();
+      var diff = now - previous - delay;
+
+      if (diff >= 0) {
+        previous = now;
+        setTimeout(later, delay);
+      }
+    };
+  }
+
+  var debounceInputElmt = document.getElementById('debounceInput');
+  var debounceTargetElmt = document.getElementById('debounceTarget');
+  debounceInputElmt.addEventListener('input', debounce(function() {
+    debounceTargetElmt.value = (debounceInputElmt.value || '').toUpperCase();
+  }, 500));
+
+  var throttleInputElmt = document.getElementById('throttleInput');
+  var throttleTargetElmt = document.getElementById('throttleTarget');
+  throttleInputElmt.addEventListener('input', throttle(function() {
+    throttleTargetElmt.value = (throttleInputElmt.value || '').toUpperCase();
+  }, 500));
+</script>
+</body>
+</html>
