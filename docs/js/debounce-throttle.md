@@ -76,7 +76,7 @@ function throttle(fn, delay) {
 
 **效果图:**
 
-![sample debounce](../../public/img/js/debounce-throttle/sample__throttle.gif)
+![sample throttle](../../public/img/js/debounce-throttle/sample__throttle.gif)
 
 ## 总结
 根据实际业务场景，合理的利用debounce（防抖）和throttle（节流）可以优化性能和提高用户体验。两者间的核心区别就在于持续触发事件时，前者合并事件并在最后时间去触发事件，而后者则是隔间时间触发一次～
