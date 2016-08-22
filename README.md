@@ -1,8 +1,6 @@
 # speechless
-Sharing and speechless
+Sharing and speechless, [online reading](http://ipluser.github.io/speechless/).
 
-## Resources
-- [online book](http://ipluser.github.io/speechless/)
 
 ## CSS
 - [迷惑的position](docs/css/position.md)
