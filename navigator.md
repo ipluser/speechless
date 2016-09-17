@@ -12,6 +12,7 @@
 
 - JS
  - [debounce(防抖)和throttle(节流)](#docs/js/debounce-throttle.md)
+ - [Promise原理解析一](#docs/js/promise__then-catch.md)
 
 - Node
  - [Node.js命令行工具开发教程](#docs/node/command-line-interface.md)
@@ -28,3 +29,4 @@
 
 ## Friend Links
 - [magicbook](http://ipluser.github.io/magicbook/)
+- [anole](https://github.com/ipluser/anole)
