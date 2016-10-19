@@ -280,6 +280,11 @@ catch(onRejected) {
 - 通过Promise.prototype.then和Promise.prototype.catch方法将观察者方法注册到被观察者Promise对象中，同时返回一个新的Promise对象，以便可以链式调用。
 - 被观察者管理内部pending、fulfilled和rejected的状态转变，同时通过构造函数中传递的resolve和reject方法以主动触发状态转变和通知观察者。
 
+<br>
+**Note:**
+
+[Promise原理分析二](http://ipluser.github.io/speechless/#docs/js/promise__static-methods.md)
+
 
 ## 关键知识点
 > [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
