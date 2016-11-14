@@ -11,6 +11,7 @@ Sharing and speechless, [online reading](http://ipluser.github.io/speechless/).
 - [debounce(防抖)和throttle(节流)](docs/js/debounce-throttle.md)
 - [Promise原理解析一](docs/js/promise__then-catch.md)
 - [Promise原理解析二](docs/js/promise__static-methods.md)
+- [初识React](docs/js/react__beginning.md)
 
 ## Node
 - [Node.js命令行工具开发教程](docs/node/command-line-interface.md)
