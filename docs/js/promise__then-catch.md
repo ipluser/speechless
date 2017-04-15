@@ -297,4 +297,4 @@ catch(onRejected) {
 >>百度百科
 
 ## 资源
-### [完整代码](https://github.com/ipluser/anole/blob/master/lib/promise.js)
+### [完整代码](https://github.com/ipluser/anole/blob/master/src/promise/index.js)
