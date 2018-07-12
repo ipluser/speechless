@@ -17,6 +17,7 @@ Sharing and speechless, [online reading](http://ipluser.github.io/speechless/).
 - [Node.js命令行工具开发教程](docs/node/command-line-interface.md)
 
 ## Architecture
+ - [前端入门指导](docs/architecture/guide.md)
  - [前端规范](docs/architecture/frontend-conventions.md)
  - [Flux 单向数据流](docs/architecture/flux.md)
 
